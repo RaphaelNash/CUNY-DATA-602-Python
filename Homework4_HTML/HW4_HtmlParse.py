@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib
 from watson_developer_cloud import AlchemyLanguageV1
-
 import json
 from os.path import join, dirname
 
@@ -15,13 +14,14 @@ link = "https://twitter.com/realDonaldTrump"
 f = urllib.urlopen(link)
 website = f.read()
 
-soup =  BeautifulSoup(website)
+soup =  BeautifulSoup(website, "html.parser")
 tweets =  soup('p', {'class': 'tweet-text'})
 
-print ( "Sentiment of the last 20 texts from Donald Trump @theRealDonaldTrump")
+print ( "Sentiment of the last 20 tweets from Donald Trump @theRealDonaldTrump:")
+print("")
 
 for tweet in tweets:
-    print "Tweet Text " + tweet.contents[0]
+    print "Tweet Text: " + tweet.contents[0]
     response = alchemy_language.sentiment(text=tweet.contents[0], language='english', )
     print "Sentiment: " + response["docSentiment"]["type"]
     print ""
