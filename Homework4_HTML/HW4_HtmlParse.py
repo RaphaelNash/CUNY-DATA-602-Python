@@ -14,6 +14,8 @@ full_text = ""
 
 in_file = open(".apikey", "r")
 watson_api_key = in_file.read().splitlines()
+
+
 in_file.close()
 
 alchemy_language = AlchemyLanguageV1(api_key=watson_api_key)
