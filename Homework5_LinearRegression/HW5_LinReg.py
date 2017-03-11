@@ -37,5 +37,7 @@ if __name__ == "__main__":
 
     print "slope: "  + str(slope)
     print "intercept: " + str(intercept)
+    print ""
+    print "body = " + str(round(slope,2)) + " * brain + " + str(round(intercept,2))
 
 
