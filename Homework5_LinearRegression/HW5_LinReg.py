@@ -27,10 +27,10 @@ if __name__ == "__main__":
     sigma_X2 = 0.0
 
     for brain_body_item in brain_body_list:
-        sigma_X += brain_body_item.body
-        sigma_Y += brain_body_item.brain
+        sigma_X += brain_body_item.brain
+        sigma_Y += brain_body_item.body
         sigma_XY +=  (brain_body_item.body * brain_body_item.brain)
-        sigma_X2 += (brain_body_item.body * brain_body_item.body)
+        sigma_X2 += (brain_body_item.brain * brain_body_item.brain)
 
     slope = ((n*sigma_XY) - (sigma_X*sigma_Y)) / ( n * sigma_X2 - (sigma_X*sigma_X))
     intercept  = (sigma_Y - (slope*sigma_X) ) / n
